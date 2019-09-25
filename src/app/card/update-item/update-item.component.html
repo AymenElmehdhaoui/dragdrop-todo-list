@@ -1,0 +1,25 @@
+<div class="row">
+  <form [formGroup]="cardForm"
+        (ngSubmit)="cardForm.valid && onSubmit()">
+    <div class="col-xs-12 col-sm-6 example-col">
+      <kendo-textbox-container>
+        <p>Name</p>
+        <input kendoTextBox formControlName="name" autofocus #name
+               [ngClass]="{'invalid':cardForm.get('name').touched && cardForm.get('name').invalid}"/>
+      </kendo-textbox-container>
+    </div>
+    <div class="col-xs-12 col-sm-6 example-col">
+      <kendo-textbox-container>
+        <p>Description</p>
+        <textarea kendoTextArea formControlName="description" [autoSize]="true"></textarea>
+      </kendo-textbox-container>
+    </div>
+    <br>
+    <div class="col-12">
+      <button class="col-4" type="button" kendoButton (click)="cancel()" [icon]="'cancel'" [look]="'outline'"></button>
+      <button class="col-4" [disabled]="!cardForm.valid" type="submit" kendoButton [icon]="'check'"
+              [look]="'outline'"></button>
+    </div>
+
+  </form>
+</div>

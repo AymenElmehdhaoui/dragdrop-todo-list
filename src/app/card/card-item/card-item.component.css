@@ -1,0 +1,9 @@
+.card {
+  cursor: move;
+  margin-bottom: 10px;
+}
+
+
+.alert span{
+  cursor: pointer;
+}

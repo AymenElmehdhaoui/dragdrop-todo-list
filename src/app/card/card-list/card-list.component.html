@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="task-todo"
+        cdkDropList
+        id="todo"
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList, doingList]"
+        (cdkDropListDropped)="drop($event)"
+        >
+        <div *ngFor="let card of todo" cdkDrag>
+          <app-card-item [card]="card" class="task-element"></app-card-item>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="task-doing"
+        cdkDropList
+        id="doing"
+        #doingList="cdkDropList"
+        [cdkDropListData]="doing"
+        [cdkDropListConnectedTo]="[todoList, doneList]"
+        (cdkDropListDropped)="drop($event)">
+        <div *ngFor="let card of doing" cdkDrag>
+          <app-card-item [card]="card" class="task-element"></app-card-item>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="task-done"
+        cdkDropList
+        id="done"
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList, doingList]"
+        (cdkDropListDropped)="drop($event)"
+        >
+        <div *ngFor="let card of done" cdkDrag>
+          <app-card-item [card]="card" class="task-element"></app-card-item>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <app-update-item></app-update-item>
+    </div>
+  </div>
+</div>
+<span> {{ list$ | async }}</span>

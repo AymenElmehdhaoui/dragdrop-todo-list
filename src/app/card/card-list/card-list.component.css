@@ -1,0 +1,6 @@
+.task-todo,
+.task-doing,
+.task-done {
+  min-height: 50vh;
+  background-color: rgba(0, 0, 0, .03);
+}

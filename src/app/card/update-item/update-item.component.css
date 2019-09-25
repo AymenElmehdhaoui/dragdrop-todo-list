@@ -1,0 +1,4 @@
+.k-state-focused .ng-invalid,
+.ng-dirty .ng-invalid {
+  border-color: red;
+}
